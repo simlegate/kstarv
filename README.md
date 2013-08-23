@@ -68,6 +68,22 @@ write value
 #    BORADCAST=192.168.0.255
 #    ....
 ```
+set key case
+```ruby
+# you can set case of key
+# downcase and @case is true by default
+@kv.case = false
+@kv.write
+# output:
+#    ......
+#    BOOTPROTO=static
+#    IPADDR=192.168.0.201
+#    NETMASK=255.255.255.0
+#    GATEWAY=192.168.0.1
+#    BORADCAST=192.168.0.255
+#    ....
+```
+
 ## Contributing
 
 1. Fork it
