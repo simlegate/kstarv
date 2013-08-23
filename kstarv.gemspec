@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Kstarv::VERSION
   spec.authors       = ["都是牛奶装什么特仑苏丶"]
   spec.email         = ["simlegate@163.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{Wrap a Ruby object by parsing text file including key-values}
+  spec.summary       = %q{Wrap a Ruby object by parsing text file including key-values}
   spec.homepage      = ""
   spec.license       = "MIT"
 
