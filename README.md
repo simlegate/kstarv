@@ -1,6 +1,6 @@
 # Kstarv
 
-TODO: Write a gem description
+Wrap a Ruby object by parsing file including key-values
 
 ## Installation
 
