@@ -9,8 +9,7 @@ describe '#Kstarv' do
     Kstarv.from(@file,'=').should be_instance_of Kstarv::KV
   end
 
-  it 'second param is alter of _from_ method ' do
-    pending('可选单词')
+  it 'second param is optional of _from_ method ' do
     Kstarv.from(@file).should be_instance_of Kstarv::KV
   end
 
