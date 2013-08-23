@@ -2,6 +2,8 @@
 
 Wrap a Ruby object by parsing file including key-values
 
+[![Build Status](https://travis-ci.org/simlegate/kstarv.png?branch=master)](https://travis-ci.org/simlegate/kstarv)
+
 ## Installation
 
 Add this line to your application's Gemfile:
