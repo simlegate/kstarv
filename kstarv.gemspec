@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["simlegate@163.com"]
   spec.description   = %q{Wrap a Ruby object by parsing text file including key-values}
   spec.summary       = %q{Wrap a Ruby object by parsing text file including key-values}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/simlegate/kstarv"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
