@@ -37,16 +37,37 @@ BORADCAST=192.168.0.255
 set decollator spliting key and vaule
 ```ruby
 # decollator is '=' by default
-Kstarv.from(/path/to/config) 
+@kv = Kstarv.from(/path/to/config) 
 # set decollator to '*'
-Kstarv.from(/path/to/config, '*') 
+@kv = Kstarv.from(/path/to/config, '*') 
 ```
 
-* set key case  
+set key case  
+```ruby
   # 'upcase' or 'downcase'
   @kv.case = 'upcase'
   @kv.write
+```
+read value by key
+```ruby
+@kv.device  # => eth0
+@kv.ipaddr  # => 192.168.0.201
+....
+```
 
+write value
+```ruby
+@kv.ipaddr  # => 127.0.0.1
+@kv.write
+# output:
+#    ......
+#    BOOTPROTO=static
+#    IPADDR=127.0.0.1  # => changed
+#    NETMASK=255.255.255.0
+#    GATEWAY=192.168.0.1
+#    BORADCAST=192.168.0.255
+#    ....
+```
 ## Contributing
 
 1. Fork it
