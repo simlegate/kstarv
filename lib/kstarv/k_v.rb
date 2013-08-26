@@ -40,7 +40,7 @@ module Kstarv
 	f.each do |line|
 	  # remove blank line
 	  # remove beginning and end space
-	  create_attr(line.strip.split(@join)) unless line.gsub("\n",'').length == 0
+	  create_attr(line.strip.split(@join)) if line.gsub("\n",'').length != 0 && !(line.strip =~ /^#/)
 	end
       end
     end
