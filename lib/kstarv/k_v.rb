@@ -19,8 +19,6 @@ module Kstarv
     # @net_work_config.write
     def write
       kvs = @instance_vars.map do | var |
-	# TODO var upcase or downcase
-	# 调用case method
 	"#{convert_case(var)}=#{instance_var_get(var)}"
       end
       # kvs =>  [ "DEVICE=eth0", "HWADDR=00:1E:67:24:E8:2D", "TYPE=Ethernet" ...]
@@ -52,9 +50,8 @@ module Kstarv
       create_attr [name.to_s.split('=')[0], v]
     end
 
-    # TODO
     def to_s
-      'convert kv to str'
+      @str ||= File.read(@file)
     end
 
     private 

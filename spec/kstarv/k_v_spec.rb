@@ -6,15 +6,16 @@ describe '#KV' do
     @kv = Kstarv::KV.new @file
   end
 
+  after :each do
+    FileUtils.copy File.expand_path('../../fixtures/kv', __FILE__),@file
+  end
+
   context 'dynamic create attr' do
     it 'should not including other attr ' do
       @kv.instance_variable_get(:@instance_vars).should == [:device, :hwaddr, :type, :uuid, :onboot, :nm_controlled, :bootproto, :ipaddr, :netmask, :gateway, :boradcast]
     end
     
     context 'attr do not exists' do
-      after :each do
-        FileUtils.copy File.expand_path('../../fixtures/kv', __FILE__),@file
-      end
 
       it 'should be empty string' do
 	@kv.chinesename.should == ''
@@ -62,14 +63,33 @@ describe '#KV' do
   end
 
   context 'set key case' do
-    it '____' do
-      pending('wait me....')
+    it 'downcase by default' do
+      @kv.write
+      File.readlines(@file).first.should == "device=eth0\n"
+    end
+
+    it 'set upcase' do
+      @kv.case = false
+      @kv.write
+      File.readlines(@file).first.should == "DEVICE=eth0\n"
     end
   end
 
+  it 'convert content of file to string' do
+    @kv.to_s.should == File.read(@file)
+  end
+
   context 'private method' do
-    it '____' do
-      pending('wait me....')
+    before :each do
+      @methods = [:create_attr, :save_instance_var, :prefix_at, :instance_var_get, :convert_case ]
+    end
+
+    it 'should have 5 privte methods ' do
+      @methods.count.should == 5
+    end
+
+    it 'should respond_to all of @methods' do
+      @methods.map {|method| @kv.private_methods.should include method}
     end
   end
 end

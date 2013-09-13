@@ -3,13 +3,16 @@ require "kstarv/k_v"
 
 module Kstarv
   class NoSuchFile < StandardError
+    def initialize path
+      @path = path
+    end
+
     def message
-      # TODO should say file path to message
-      "can not find _such file_"
+      "can not find #{@path}"
     end
   end
 
   def self.from file,join='='
-    File.exists?(file) ? KV.new(file, join) : (raise NoSuchFile)
+    File.exists?(file) ? KV.new(file, join) : (raise NoSuchFile.new(file))
   end
 end
