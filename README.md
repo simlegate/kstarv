@@ -75,6 +75,17 @@ Set key case
 #    gatewaY=192.168.0.1
 #    boradcast=192.168.0.255
 #    ....
+#
+@kv.case = true 
+@kv.write
+# output:
+#    ......
+#    BOOTPROTO=static
+#    IPADDR=192.168.0.201
+#    NETMASK=255.255.255.0
+#    GATEWAY=192.168.0.1
+#    BORADCAST=192.168.0.255
+#    ....
 ```
 
 ## Contributing
