@@ -41,14 +41,6 @@ Set decollator spliting key and vaule
 @kv = Kstarv.from(/path/to/config, '*') 
 ```
 
-Set key of kv case  
-```ruby
-  # 'upcase' or 'downcase'
-  # 'upcase' => DEVICE
-  # 'downcase' => device
-  @kv.case = 'upcase'
-  @kv.write
-```
 Read value by key
 ```ruby
 @kv.device  # => eth0
