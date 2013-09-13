@@ -18,7 +18,7 @@ Or install it yourself as:
     $ gem install kstarv
 
 ## Example text file
-centos network config file
+Centos network config file
 ```ruby
 DEVICE=eth0
 HWADDR=00:1E:67:24:E8:2D
@@ -33,7 +33,7 @@ GATEWAY=192.168.0.1
 BORADCAST=192.168.0.255
 ```
 ## Usage
-set decollator spliting key and vaule
+Set decollator spliting key and vaule
 ```ruby
 # decollator is '=' by default
 @kv = Kstarv.from(/path/to/config) 
@@ -41,20 +41,22 @@ set decollator spliting key and vaule
 @kv = Kstarv.from(/path/to/config, '*') 
 ```
 
-set key case  
+Set key of kv case  
 ```ruby
   # 'upcase' or 'downcase'
+  # 'upcase' => DEVICE
+  # 'downcase' => device
   @kv.case = 'upcase'
   @kv.write
 ```
-read value by key
+Read value by key
 ```ruby
 @kv.device  # => eth0
 @kv.ipaddr  # => 192.168.0.201
 ....
 ```
 
-write value
+Write value
 ```ruby
 @kv.ipaddr  # => 127.0.0.1
 @kv.write
@@ -67,7 +69,7 @@ write value
 #    BORADCAST=192.168.0.255
 #    ....
 ```
-set key case
+Set key case
 ```ruby
 # you can set case of key
 # downcase and @case is true by default
