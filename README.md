@@ -3,19 +3,6 @@
 Wrap a Ruby object by parsing file including key-values
 
 [![Gem Version](https://badge.fury.io/rb/kstarv.png)](http://badge.fury.io/rb/kstarv) [![Build Status](https://travis-ci.org/simlegate/kstarv.png?branch=master)](https://travis-ci.org/simlegate/kstarv)
-## Installation
-
-Add this line to your application's Gemfile:
-
-    gem 'kstarv'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install kstarv
 
 ## Example text file
 Centos network config file
