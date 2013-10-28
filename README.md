@@ -1,6 +1,6 @@
 # Kstarv
 
-Wrap a Ruby object by parsing file including key-value pairsk
+Wrap a Ruby object by parsing file including key-value pairs
 
 [![Gem Version](https://badge.fury.io/rb/kstarv.png)](http://badge.fury.io/rb/kstarv) [![Build Status](https://travis-ci.org/simlegate/kstarv.png?branch=master)](https://travis-ci.org/simlegate/kstarv)
 
