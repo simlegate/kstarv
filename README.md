@@ -66,7 +66,7 @@ Set key case
 @kv.case = true 
 @kv.write
 # output:
-#    ......
+#    ....
 #    BOOTPROTO=static
 #    IPADDR=192.168.0.201
 #    NETMASK=255.255.255.0
