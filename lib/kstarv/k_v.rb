@@ -18,28 +18,30 @@ module Kstarv
     # @net_work_config.ipaddr = '127.0.0.1'
     # @net_work_config.write
     def write
-      kvs = @instance_vars.map do | var |
-	"#{convert_case(var)}=#{instance_var_get(var)}"
-      end
-      # kvs =>  [ "DEVICE=eth0", "HWADDR=00:1E:67:24:E8:2D", "TYPE=Ethernet" ...]
-
       # r+是覆盖写，w+是清除后写，a+是追加写
       File.open(@file, 'w+') do |f|
-	kvs.map do |kv|
-	  f.write(kv)
-	  f.puts
-	end
+        kvs.map do |kv|
+          f.write(kv)
+          f.puts
+        end
       end
     end
 
-
+    def kvs
+      # kvs =>  [ "DEVICE=eth0", "HWADDR=00:1E:67:24:E8:2D", "TYPE=Ethernet" ...]
+      kvs = @instance_vars.map do | var |
+        "#{convert_case(var)}=#{instance_var_get(var)}"
+      end
+    end
+    
     def load_attr
       File.open(@file) do |f|
-	f.each do |line|
-	  # remove blank line
-	  # remove beginning and end space
-	  create_attr(line.strip.split(@join)) if line.gsub("\n",'').length != 0 && !(line.strip =~ /^#/)
-	end
+        f.each do |line|
+          # remove blank line
+          # remove beginning and end space
+          line.strip!
+          create_attr(line.split(@join)) if line.gsub("\n",'').length != 0 && !(line =~ /^#/)
+        end
       end
     end
 
@@ -59,7 +61,7 @@ module Kstarv
     def create_attr kv
       save_instance_var kv[0].downcase.to_sym
       singleton_class.class_eval { attr_accessor kv[0].downcase}
-      send("#{kv[0].downcase}=", kv[1].strip)
+      send("#{kv[0].downcase}=", kv[1].to_s.strip)
     end
 
     def save_instance_var var
